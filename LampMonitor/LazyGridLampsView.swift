@@ -1,5 +1,5 @@
 //
-//  LazyGridLampRow.swift
+//  LazyGridLampsView.swift
 //  LampMonitor
 //
 //  Created by Adrian Tineo Cabello on 13/2/21.
@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct LazyGridLampRow: View {
-    let lampRecord: LampRecord
+struct LazyGridLampsView: View {
+    let lampRecords: [LampRecord]
     
     private let columns: [GridItem] = [GridItem(), GridItem()]
     
-    private var lampImage: some View {
+    private func lampImage(for lampRecord: LampRecord) -> some View {
         if lampRecord.isOn {
             return Image(systemName: "lightbulb.fill")
                 .foregroundColor(.yellow)
@@ -24,16 +24,20 @@ struct LazyGridLampRow: View {
     
     var body: some View {
         LazyVGrid(columns: columns, alignment: .leading, spacing: 8.0) {
-            Text(lampRecord.date.formatted)
-                .font(.body)
-                .bold()
-            Text("New state")
-                .font(.body)
-                .bold()
-            Text(lampRecord.lamp.rawValue)
-                .font(.body)
-                .bold()
-            lampImage
+            ForEach(lampRecords) { lampRecord in
+                Text(lampRecord.date.formatted)
+                    .font(.body)
+                    .bold()
+                Text("New state")
+                    .font(.body)
+                    .bold()
+                Text(lampRecord.lamp.rawValue)
+                    .font(.body)
+                    .bold()
+                lampImage(for: lampRecord)
+                Divider().padding([.trailing], -8.0)
+                Divider()
+            }
         }
     }
 }

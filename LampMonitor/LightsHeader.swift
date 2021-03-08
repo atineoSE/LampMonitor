@@ -8,13 +8,11 @@
 import SwiftUI
 
 struct LightsHeader: View {
-    @Binding var usesLazyStack: Bool
-    @Binding var usesLazyGridRow: Bool
+    @Binding var usesLazyGrid: Bool
     
     var body: some View {
         VStack {
-            Toggle(usesLazyStack ? "LazyVStack-based record list" : "List-based record list", isOn: $usesLazyStack)
-            Toggle(usesLazyGridRow ? "LazyVGrid-based row" : "VStack/HStack-based row", isOn: $usesLazyGridRow)
+            Toggle(usesLazyGrid ? "LazyVGrid-based record list" : "LazyVStack-based record list", isOn: $usesLazyGrid)
         }
         .padding()
         .background(Color.orange)
@@ -23,7 +21,7 @@ struct LightsHeader: View {
 
 struct LightsHeader_Previews: PreviewProvider {
     static var previews: some View {
-        LightsHeader(usesLazyStack: .constant(false), usesLazyGridRow: .constant(true))
+        LightsHeader(usesLazyGrid: .constant(true))
             .previewLayout(.sizeThatFits)
     }
 }

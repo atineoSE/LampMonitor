@@ -10,40 +10,25 @@ import SwiftUI
 struct LampRecordsView: View {
     let lampRecords: [LampRecord] = TestData.getSampleLampRecords()
     
-    @State var usesLazyStack: Bool
-    @State var usesLazyGridRow: Bool
-    
-    private func records(showsDivider: Bool) -> some View {
-        ForEach(lampRecords) { lampRecord in
-            Group {
-                if usesLazyGridRow {
-                    LazyGridLampRow(lampRecord: lampRecord)
-                } else {
-                    StackLampRow(lampRecord: lampRecord)
-                }
-            }
-            .background(lampRecord.isHighlighted ? Color.orange : Color(UIColor.systemBackground))
-            if showsDivider {
-                Divider()
-            }
-        }
-    }
+    @State var usesLazyGrid: Bool
     
     var body: some View {
         VStack {
-            LightsHeader(usesLazyStack: $usesLazyStack, usesLazyGridRow: $usesLazyGridRow)
-            if usesLazyStack {
-                ScrollView {
-                    LazyVStack(alignment: .leading) {
-                        records(showsDivider: true)
+            LightsHeader(usesLazyGrid: $usesLazyGrid)
+            ScrollView {
+                Group {
+                    if usesLazyGrid {
+                        LazyGridLampsView(lampRecords: lampRecords)
+                    } else {
+                        LazyVStack {
+                            ForEach(lampRecords) { lampRecord in
+                                StackLampRow(lampRecord: lampRecord)
+                                Divider()
+                            }
+                        }
                     }
-                    .padding([.leading, .trailing])
                 }
-            } else {
-                List {
-                    records(showsDivider: false)
-                }
-                .listStyle(PlainListStyle())
+                .padding([.leading, .trailing])
             }
         }
         .navigationTitle("Lamp records")
@@ -54,9 +39,9 @@ struct LampRecordsView: View {
 struct LampRecordsView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            LampRecordsView(usesLazyStack: true, usesLazyGridRow: false)
-            LampRecordsView(usesLazyStack: false, usesLazyGridRow: false)
+            LampRecordsView(usesLazyGrid: false)
+            LampRecordsView(usesLazyGrid: true)
         }
-            .previewLayout(.sizeThatFits)
+        .previewLayout(.sizeThatFits)
     }
 }

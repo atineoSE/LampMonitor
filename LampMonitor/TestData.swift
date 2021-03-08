@@ -9,7 +9,6 @@ import Foundation
 
 struct TestData {
     private static let numberOfRecords = 50
-    static var highlightedRecord =  numberOfRecords / 2
     
     private static var currentDate: Date = {
         let dateFormatter = DateFormatter()

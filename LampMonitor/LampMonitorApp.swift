@@ -12,7 +12,7 @@ struct LampMonitorApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                LampRecordsView(usesLazyStack: false, usesLazyGridRow: false)
+                LampRecordsView(usesLazyGrid: false)
             }
         }
     }

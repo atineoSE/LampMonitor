@@ -21,8 +21,3 @@ struct LampRecord: Identifiable {
     let lamp: Lamp
 }
 
-extension LampRecord {
-    var isHighlighted: Bool {
-        id == TestData.highlightedRecord
-    }
-}

@@ -17,7 +17,7 @@
 		3C876EAE25D8533700F93455 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C876EAD25D8533700F93455 /* Date.swift */; };
 		3C876EB125D8552E00F93455 /* TestData+Previews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C876EB025D8552E00F93455 /* TestData+Previews.swift */; };
 		3C876EB625DAE29F00F93455 /* LampRecordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C876EB525DAE29F00F93455 /* LampRecordsView.swift */; };
-		3C90D82F25F3DE7A00608D60 /* LazyGridLampRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C90D82E25F3DE7A00608D60 /* LazyGridLampRow.swift */; };
+		3C90D82F25F3DE7A00608D60 /* LazyGridLampsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C90D82E25F3DE7A00608D60 /* LazyGridLampsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +33,7 @@
 		3C876EAD25D8533700F93455 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		3C876EB025D8552E00F93455 /* TestData+Previews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TestData+Previews.swift"; sourceTree = "<group>"; };
 		3C876EB525DAE29F00F93455 /* LampRecordsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LampRecordsView.swift; sourceTree = "<group>"; };
-		3C90D82E25F3DE7A00608D60 /* LazyGridLampRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyGridLampRow.swift; sourceTree = "<group>"; };
+		3C90D82E25F3DE7A00608D60 /* LazyGridLampsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyGridLampsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +69,7 @@
 				3C876E9025D8423300F93455 /* LampMonitorApp.swift */,
 				3C876EB525DAE29F00F93455 /* LampRecordsView.swift */,
 				3C876EA025D8425300F93455 /* StackLampRow.swift */,
-				3C90D82E25F3DE7A00608D60 /* LazyGridLampRow.swift */,
+				3C90D82E25F3DE7A00608D60 /* LazyGridLampsView.swift */,
 				3C41D77325F3C8E70072FE15 /* LightsHeader.swift */,
 				3C876EA325D8427300F93455 /* Model.swift */,
 				3C876EA625D8480800F93455 /* TestData.swift */,
@@ -160,7 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C876E9125D8423300F93455 /* LampMonitorApp.swift in Sources */,
-				3C90D82F25F3DE7A00608D60 /* LazyGridLampRow.swift in Sources */,
+				3C90D82F25F3DE7A00608D60 /* LazyGridLampsView.swift in Sources */,
 				3C876EAE25D8533700F93455 /* Date.swift in Sources */,
 				3C876EB625DAE29F00F93455 /* LampRecordsView.swift in Sources */,
 				3C876EB125D8552E00F93455 /* TestData+Previews.swift in Sources */,
