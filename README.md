@@ -45,3 +45,43 @@ In that case, we can use `VStack` and `HStack` instead. However, there is no reg
 
 > SwiftUI's layout primitives were designed with composition in mind
 
+
+
+## The fix
+
+It turns out that the use exposed above of the `LazyVGrid` is actually incorrect: instead of serving as a layouting primitive inside a row, the lazy grid wants to be given an arbitrarily large collection of elements to layout in the given column arrangement, which naturally profits from its lazy qualities. 
+
+Thanks to [Chris Barker](https://twitter.com/MrChrisBarker) for pointing out the correct pattern!
+
+This is what the list looks like now:
+
+![Smooth scrolling of a LazyVGrid](https://user-images.githubusercontent.com/12340433/110369644-fae24480-804a-11eb-8890-45b76c4be323.mov "Smooth scrolling of a LazyVGrid")
+
+
+The actual code for the `LazyVGrid` looks like this:
+
+```
+        LazyVGrid(columns: columns, alignment: .leading, spacing: 8.0) {
+            ForEach(lampRecords) { lampRecord in
+                Text(lampRecord.date.formatted)
+                    .font(.body)
+                    .bold()
+                Text("New state")
+                    .font(.body)
+                    .bold()
+                Text(lampRecord.lamp.rawValue)
+                    .font(.body)
+                    .bold()
+                lampImage(for: lampRecord)
+                Divider().padding([.trailing], -8.0)
+                Divider()
+            }
+        }
+```
+
+Note the double divider with extra negative padding to simulate the effect of an unbroken divider between the "rows". 
+
+If we further think about "tapping the row", things get tricky... since we actually have no rows but a grid! This is an indication that the `LazyVGrid` is not the right primitive for this kind of list-like interfaces.
+
+Thanks for reading and happy coding! 🧑‍💻👩‍💻
+
